@@ -5,5 +5,5 @@ REPOSITORY FOR CLASS 330
 <h2>Contributors</h2>
 	<ul>
 		<li>Peter Itskovich</li>
-		<li>Tiffany Baker<li>
+		<li>Tiffany Baker</li>
 	</ul>
