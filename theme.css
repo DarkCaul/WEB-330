@@ -1,0 +1,149 @@
+/*
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 03/15/2023
+	Description: Style page for web 330 class.
+
+*/
+
+
+/*color scheme for light theme*/
+
+body.light-theme {
+    --text-color: #000;
+    --background-color: #fff;
+    --anchor-color: #4f3674;
+    --h1-background-color: #3c275a;
+    --h1-border-color: #d6a800;
+    --heading-background-color: #3c275a;
+    --heading-color: #fff;
+    --heading-border-color: #d6a800;
+    --anchor-hover-color: #4f3674;
+    --anchor-hovor-background-color: #d6a800;
+    --card-background-color: #4f3674;
+    --card-title-color: #4f3674;
+    --btn-background-color: #4f3674;
+    --btn-color: #fff;
+    --btn-hover-background-color: #d6a800;
+    --btn-hover-color: #4f3674;
+    --input-border-color: #ccc;
+
+}
+
+/*color scheme for dark theme*/
+
+body.dark-theme {
+    --text-color: #fafafa;
+    --background-color: #303030;
+    --anchor-color: #fff;
+    --h1-background-color: #9c27b0;
+    --h1-border-color: #9c27b0;
+    --heading-background-color: #424242;
+    --heading-color: #fff;
+    --heading-border-color: #424242;
+    --anchor-hover-color: #d176e1;
+    --anchor-hovor-background-color: #303030;
+    --card-background-color: #424242;
+    --card-title-color: #d176e1;
+    --btn-background-color: #d176e1;
+    --btn-color: #fff;
+    --btn-hover-background-color: #7d4787;
+    --btn-hover-color: #fff;
+    --input-border-color: #303030;
+
+}
+
+/*applying colors to chosen theme*/
+
+body {
+	font-family: 'Oswald', Verdana, Arial, sans-serif;
+	color: var(--text-color);
+	background: var(--background-color);
+}
+a { color: var(--anchor-color);
+
+}
+
+a:hover { background-color: var(--anchor-hovor-background-color);
+	color: var(--anchor-hover-color);
+
+
+}
+
+/*Applying theme to headers*/
+
+h1 {
+	color: var(--heading-color);
+	background-color: var(--h1-background-color);
+	padding: 10px;
+	border-style: solid;
+	border:1px;
+	border-color: var(--h1-border-color);
+
+}
+
+h2 {
+	color: var(--heading-color);
+	background-color: var(--heading-background-color);
+	padding: 10px;
+	border-style: solid;
+	border: 1px;
+	border-color: var(--heading-border-color);
+
+}
+
+h3 {
+	color: var(--heading-color);
+	background-color: var(--heading-background-color);
+	padding: 10px;
+	border-style: solid;
+	border: 1px;
+	border-color: var(--heading-border-color);
+
+}
+
+h4 {
+	color: var(--heading-color);
+	background-color: var(--heading-background-color);
+	padding: 10px;
+	border-style: solid;
+	border: 1px;
+	border-color: var(--heading-border-color);
+
+}
+
+/*Applying theme to cards and btn*/
+
+.card {
+	background-color: var(--card-background-color);
+
+
+} 
+
+.card-title {
+	color: var(--card-title-color);
+
+
+}
+
+.btn-primary {
+	background-color: var(--btn-background-color);
+	color: var(--btn-color);
+
+}
+
+.btn-primary {
+	background-color: var(--btn-hover-background-color);
+	color: var(--btn-hover-color);
+
+}
+
+.input {
+	border-color: var(--input-border-color);
+
+}
+
+.dropdown {
+	border-color: var(--input-border-color);
+}
