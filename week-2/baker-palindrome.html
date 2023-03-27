@@ -1,0 +1,107 @@
+<!--
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 03/21/2023
+	Description: a palindrome checker.
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WEB 330 – Enterprise JavaScript II</title> 
+		<!--CDN-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+<body>
+
+	<h1 class="app-header">Welcome to the Palindrome App!</h1>
+		
+		<div class="checkerDiv"> <!--Creates a div to display a block of text.-->
+
+			<h1>Palindrome Checker</h1>
+
+			<!--Created to request possible Palindrome text.-->
+
+			<form>
+				<label for="pValue">Phrase Value </label><input type="text" id="pValue" name="txtPhrase"> <br>
+
+				<!--Submit button-->
+				<label for="btnCheckPhrase"></label><input type="submit" id="btnCheckPhrase" name="btn" value="Check Phrase" onclick="function isPalindrome()">
+
+			</form>
+
+		</div>
+
+
+		<!--Block displays palindrome results menu-->
+
+		<div id="resultsDiv">
+
+			<h1>Palindrome Results</h1>
+
+		</div>
+
+
+			<script>	
+
+			//Creates a date function		
+
+				var date = new Date().toLocaleDateString();
+
+				function getTodaysDate() {
+
+				return (date);
+				
+				}
+
+					document.getElementById('resultsDiv').innerHTML = getTodaysDate();
+
+				
+				// Captures the length of a string
+
+				function getLength(str){
+					var str = document.getElementById("pValue");
+
+					// find the length of a string
+		    		const length = string.length;
+
+		    		return = (length);
+		    		
+
+				}
+
+				//Splits the string, reverses it then rejoins it.
+				function reverse(str){
+					var = document.getElementById("pValue");
+
+					const pal = str.split("").reverse().join("");
+
+					return = (pal);
+					
+
+				}
+
+				// If the string is a palindrome the result equals true otherwise is false. the results and then displayed 
+
+				function isPalindrome(str){
+					var result =  reverse();
+
+					if (result === pal) 
+						return true;
+					else
+						return false;
+
+				}
+					
+				
+			</script>
+
+		
+
+</body>
