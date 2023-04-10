@@ -1,0 +1,70 @@
+<!--
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 04/05/2023
+	Description: Index page for calorie app.
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WEB 330 – Enterprise JavaScript II</title>
+		<!---- style sheets-->
+		<link href="../theme.css" rel="stylesheet" type="text/css"> 
+		<link href="../site.css" rel="stylesheet" type="text/css">
+		<link href="baker-calorie.css" rel="stylesheet" type="text/css">  
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+<body id="container" class="light-theme">
+	<div class="card, assign-content">
+
+    <h1 class="app-header">Welcome to the Calorie App!</h1>
+	
+	
+		<h1 class="card-title">Calorie Search Form</h1>
+		<label for="txtFoodItem">Enter a food item:</label>
+		<input type="text" id="txtFoodItem">
+		<P><span id="foodList"><i>(Ex. Apple, Banana, Fries, Egg, Hamburger, Soda)</i></span></input></P>
+	<br>
+		<button class="btn" type="btn" id="btnSearch" onclick="document.getElementById(txtFoodItemEl)">Search</button>
+		
+		
+	</div>
+
+<div class style="float:left; padding-left: 375px;">
+	<a href="../index.html">Return</a>
+	</div>
+
+	<div class="card, assign-content"><!---- title card-->
+		<h1 class="card-title">Search Results</h1>
+		<div class="card-content">
+
+		<table><!---- base of the calorie converter table-->
+			<tr>
+                <th id="searchResults"></th>   
+            </tr>
+			<tr>
+                <td id="searchResults"></td>
+            </tr>
+
+		</table>
+
+		</div>
+	</div>
+
+	<script>//script to make the converter work properly
+		import {calorieConverter} from	"./calorie-converter.js";
+
+		var txtFoodItemEl = document.getElementById("txtFoodItem");
+		var txtFoodItem = document.getElementById("txtFoodItem");
+		var foods = calorieConverter.find(find.toLowerCase()); 
+
+
+	</script>
+</body>

@@ -1,0 +1,21 @@
+
+/*css*/
+
+#foodList{
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card{
+    text-align: center;
+}
+
+h1 {
+    background-color: #fff;
+}
