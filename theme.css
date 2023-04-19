@@ -72,10 +72,13 @@ body {
 	background: var(--background-color);
 }
 a { color: var(--anchor-color);
+	text-decoration: none;
+
 
 }
 
-a:hover { background-color: var(--anchor-hovor-background-color);
+a:hover { 
+	background-color: var(--anchor-hovor-background-color);
 	color: var(--anchor-hover-color);
 
 
@@ -143,7 +146,7 @@ h4 {
 
 }
 
-.btn-primary {
+.btn-primary:hover {
 	background-color: var(--btn-hover-background-color);
 	color: var(--btn-hover-color);
 
@@ -158,16 +161,14 @@ h4 {
 	border-color: var(--input-border-color);
 }
 
-.table {
 
-}
 
 .table th {
-	background-color: var(--table-header-background-color;
+	background-color: var(--table-header-background-color);
 
 }
 
-.table th,td {
+.table th td {
 	border-color: var(--table-border-color);
 
 }

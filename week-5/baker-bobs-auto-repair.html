@@ -1,0 +1,151 @@
+<!--
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 
+	Description: 
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WEB 330 – Enterprise JavaScript II</title>
+		<link href="/theme.css" rel="stylesheet" type="text/css"> 
+		<link href="/site.css" rel="stylesheet" type="text/css"> 
+        <link href="bobs-auto-repair.css" rel="stylesheet" type="text/css"><!--weekly stylesheet-->
+        <script type="application/javascript" src="/theme.js"></script>
+		<!--CDN-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+<body class="light-theme">
+
+    <div class="assign-container"><!--contains the body of the content-->
+        
+        <h1 class="app-header">Welcome to Bob’s Automotive
+            Repair Shop!</h1><!--header of the app-->
+            
+            <div class="assign-content">
+
+                <div class="card"><!--card container-->
+
+                    <div class="card-title"><!--card title-->
+                        <h1>Product listing</h1>
+                        <cart-component></cart-component>
+                    </div>
+
+
+                    <div class="card-content"><!--card body-->
+                        <div class="form">
+
+                            <div class="form-field"><!--dropdown form field-->
+                                <label for="#">Choose a product</label>
+                                    <select id="productList" option value="select">
+                                        <option value="select">Select</option>
+                                        <option value="19.99">Oil Change</option>
+                                        <option value="18.44">Filter Replacement</option>
+                                        <option value="9.99">Wiper Fluid Refill</option>
+                                    </select>
+                                    <br>
+                                    <i id="cart-message">test test im here</i>
+                            </div><!--end form fields-->
+
+                            <div class="form-field"><!--form field for btn-->
+                                <button class="btn btn-primary full-width" id="btnAddProduct">Submit</button>
+                            </div><!--end btn-->
+
+                        </div>
+                    
+                    </div>
+
+                </div><!--end card-->
+
+                
+
+
+            </div><!--end content-->
+
+    </div><!--end cotainer-->
+    
+    <a href="/index.html">Return</a>
+
+    <div class="assign-container"><!--contains the body of the results-->
+
+        <div class="assign-content"><!--holds the content of the results-->
+
+            <div class="card"><!--results card-->
+
+                <div class="card-title">
+                    <h1>Shopping Cart</h1>
+                </div>
+
+                <div class="card-content assign-results-text">
+
+                    <table>
+
+                        <tr>
+                            <th id="shoppingCart"></th>
+                        </tr>
+                        <tr>
+                            <td id="shoppingCart"></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div><!--end card-->
+
+        </div><!--end content-->
+
+    </div><!--end container-->
+
+
+<!--added javaScript-->
+
+        <script>
+            setSelectedTheme();// added if needed 
+
+            import { product } from "./product.js"; 
+            import { shoppingCart} from "./shoppingCart.js";
+
+
+            const shoppingCart = new shooppingCart;
+
+            setCartCount();
+
+
+            document.getElementById("btnAddProduct").onclick = function () {
+
+                const product = productList.options[productList.selectedIndex].text;
+                const productValue = productList.options[productList.selectedIndex].value;
+
+                if (productValue === !product){
+                    shoppingCart.add(product, productValue);
+                    setCartCount();
+                    alert(product + " was added to your shopping cart!")
+
+                }
+            }
+            document.getElementById("cartIcon").onclick = function () {
+                    const cartDisplayTable = "<tr><th>ID</th><th>Name</th><th>Price</th> "; 
+                        for (let product of shoppingCart)  {
+                                cartDisplayTable += '<tr><td>${product.id}</td><td>${product.name}</td><td>${product.price}</td></tr>'; 
+                        } 
+                        
+                        document.getElementById("shoppingCart").innerHTML = cartDisplayTable
+                 }
+
+
+
+
+        </script>
+
+
+</body>
+
+</html>
