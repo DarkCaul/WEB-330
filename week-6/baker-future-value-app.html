@@ -1,0 +1,189 @@
+<!--
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 04/23/2023
+	Description: index for FVA.
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WEB 330 – Enterprise JavaScript II</title>
+		<link href="/theme.css" rel="stylesheet" type="text/css"> 
+		<link href="/site.css" rel="stylesheet" type="text/css"> 
+        <link href="baker-future-value-app.css" rel="stylesheet" type="text/css"><!--weekly stylesheet-->
+        <script type="application/javascript" src="theme.js"></script>
+		<!--CDN-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+<body class="light-theme">
+
+    <div class="assign-container"><!--contains the body of the content-->
+        
+        <h1 class="app-header">Welcome to the Future Value App!</h1><!--header of the app-->
+            
+            <div class="assign-content">
+
+                <div class="card"><!--card container-->
+
+                    <div class="card-title"><!--card title-->
+                        <h1>Future Value Calculator<h1>
+                    </div>
+                    <div class="danger" id="errorLog">
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                    </div>
+
+
+                    <div class="card-content"><!--card body-->
+                        <div class="form">
+    
+                            <div class="form-field">
+                                <label class="form-fields col-sm-5" for="txtMonthlyPayment">Monthly Payment:</label>
+                                    <input type="text" class="form-input  col-sm-7" id="txtMonthlyPayment" name="txtMonthlyPayment"><br>
+                                <label class="form-fields col-sm-5" for="txtYearlyRate">Intrest Rate:</label>
+                                    <input type="text" class="form-input col-sm-7" id="txtYearlyRate" name="txtYearlyRate"><br>
+                                <label class="form-fields col-sm-5" for="NumOfYears">Number of Years:</label>
+                                <select id="productList" class="drop-down-menu " option value="select" id="listNumOfYears">
+                                    <option class="listNumberOfYears" value="0"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div><!--end form fields--> 
+                        
+                            <div class="form-field"><!--form field for btn-->
+                                <button class="btn btn-primary full-width" id="btnCalculate">Calculate</button>
+                            </div><!--end btn-->
+                        
+                        </div><!--end of form-->
+                        <div class="return">
+                        <a href="/index.html">Return</a>
+                    </div>
+                    </div><!--end of card body-->
+
+                </div><!--end card-->
+
+
+            </div><!--end content-->
+
+    </div><!--end cotainer-->
+
+    <div class="assign-container"><!--contains the body of the results-->
+
+        <div class="assign-content"><!--holds the content of the results-->
+
+            <div class="card"><!--results card-->
+
+                <div class="card-title">
+                    <h1>Calculation as of</h1>
+                    <span id="today"></span>
+                </div>
+
+                <div class="card-content assign-results-text" id="futureValue">
+                    
+                </div>
+
+            </div><!--end card-->
+        </div><!--end content-->
+
+    </div><!--end container-->
+
+
+<!--added javaScript-->
+
+        <script>
+            setSelectedTheme();// added if needed 
+
+            import {financeCalculator} from './finance/finance-calculator'; 
+import {validator} from './validator'; 
+
+date= new Date();
+document.getElementById("today").innerHTML = date.toLocaleDateString("en-US");
+
+btnCalculate.onclick = function() {
+    var monthlyPayment = document.getElementById("txtMonthlyPayment");
+    var rate = document.getElementById("txtYearlyRate");
+    var years = document.getElementById("listNumOfYears");
+    var errorLog = document.getElementById("errorLog");
+
+    var monthlyPaymentValidator = "Monthly Payment", monthlyPayment;
+            
+    addRequiredField(monthlyPaymentValidator);
+    addRequiredFloatFeild(monthlyPaymentValidator);
+    addFloatMinField(monthlyPaymentValidator, 100);
+
+    var rateValidator = "Intrest Rate", rate;
+
+    addRequiredField(rateValidator);
+    addRequiredFloatFeild(rateValidator);
+    addFloatMaxField(rateValidator, 100);
+
+    var errorLog= [];
+
+    if(!monthlyPaymentValidator.validate()) {
+        for (let msg of monthlyPaymentValidator.messages) 
+        
+        {   
+            errorLog.push(msg); 
+        }
+    
+    }
+
+    if(!rateValidator.validate()) {
+        for (let msg of rateValidator.messages) 
+        
+        {   
+            errorLog.push(msg); 
+        }
+    
+    }
+
+    if (monthlyPaymentValidator.validate() && rateValidator.validate()) {
+        getElementById(errorLog).innerHTML = "";
+        var futureValue = calculateFutureValue(monthlyRate, rate, years);
+        getElementById(futureValue).innerHTML = "The future value is " + futureValue;
+    } else {
+            getElementById(errorLog).innerHTML = "";
+            var errorLogMessage = messages
+
+            for (let msg of errorLog)
+            {
+                errorLogMessage.push(validators);
+            } 
+
+            getElementById(errorLog).innerHTML = errorLogMessage
+    }
+}
+
+
+        </script>
+
+
+</body>
+
+</html>
