@@ -11,4 +11,4 @@ export class cartComponent extends HTMLElement {
     
 }
 
-customElements.define('cart-component', CartComponent);
+customElements.define('cart-component', cartComponent);
