@@ -5,7 +5,8 @@ export class cartComponent extends HTMLElement {
     }
      connecctedCallback() {
         this.innerHTML = 
-            <i id="cartIcon" className="fa fa shopping-cart"></i> (<span id="cart-count"></span>);
+            <i id="cartIcon" className="fa fa shopping-cart"></i> 
+            (<span id="cart-count"></span>);
      }
 
     

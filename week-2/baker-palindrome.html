@@ -20,35 +20,74 @@
 	</head>
 <body>
 
-	<h1 class="app-header">Welcome to the Palindrome App!</h1>
+
+	<body class="light-theme">
+
+		<div class="assign-container"><!--contains the body of the content-->
+			
+			<h1 class="app-header">Welcome to the Palindrome App!</h1><!--header of the app-->
+				
+				<div class="assign-content">
+	
+					<div class="card"><!--card container-->
+	
+						<div class="card-title"><!--card title-->
+							<h1>Palindrome Checker</h1>
+						</div>
+	
+	
+						<div class="card-content"><!--card body-->
+
+							<div class="form">
+    
+								<div class="form-field">
+									<label for="#">item</label>
+										<input type="text" class="input" id="#" name="item">
+								</div><!--end form fields-->
+							
+								<div class="form-field"><!--form field for btn-->
+									<button class="btn btn-primary full-width" id="btnSubmit">Submit</button>
+								</div><!--end btn-->
+							
+							</div>
+							
+						</div>
+	
+					</div><!--end card-->
+	
+	
+				</div><!--end content-->
+	
+		</div><!--end cotainer-->
+	
+		<div class="assign-container"><!--contains the body of the results-->
+	
+			<div class="assign-content"><!--holds the content of the results-->
+	
+				<div class="card"><!--results card-->
+	
+					<div class="card-title">
+						program results title
+					</div>
+	
+					<div class="card-content assign-results-text">
+						results of program displays here
+					</div>
+	
+				</div>
+	
+				<br>
+					<a href="../index.html">Return</a><!--end card-->
+			</div><!--end content-->
+	
+		</div><!--end container-->
+	
+	
+	<!--added javaScript-->
+	
+			<script>
+				setSelectedTheme();// added if needed 
 		
-		<div class="checkerDiv"> <!--Creates a div to display a block of text.-->
-
-			<h1>Palindrome Checker</h1>
-
-			<!--Created to request possible Palindrome text.-->
-
-			<form>
-				<label for="pValue">Phrase Value </label><input type="text" id="pValue" name="txtPhrase"> <br>
-
-				<!--Submit button-->
-				<label for="btnCheckPhrase"></label><input type="submit" id="btnCheckPhrase" name="btn" value="Check Phrase" onclick="function isPalindrome()">
-
-			</form>
-
-		</div>
-
-
-		<!--Block displays palindrome results menu-->
-
-		<div id="resultsDiv">
-
-			<h1>Palindrome Results</h1>
-
-		</div>
-
-
-			<script>	
 
 			//Creates a date function		
 
