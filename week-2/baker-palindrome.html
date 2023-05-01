@@ -13,7 +13,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>WEB 330 – Enterprise JavaScript II</title> 
+		<title>WEB 330 – Enterprise JavaScript II</title>
+		<link href="/theme.css" rel="stylesheet" type="text/css"> 
+		<link href="/site.css" rel="stylesheet" type="text/css"> 
+        <link href="#" rel="stylesheet" type="text/css"><!--weekly stylesheet-->
+        <script type="application/javascript" src="/theme.js"></script>
 		<!--CDN-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,16 +45,17 @@
 							<div class="form">
     
 								<div class="form-field">
-									<label for="#">item</label>
-										<input type="text" class="input" id="#" name="item">
+							
+									<label for="txtPhrase">Phrase Value</label>
+										<input type="text" class="input" id="txtPhrase" name="txtPhrase">
 								</div><!--end form fields-->
 							
 								<div class="form-field"><!--form field for btn-->
-									<button class="btn btn-primary full-width" id="btnSubmit">Submit</button>
+									<button class="btn btn-primary full-width" id="btnCheckPhrase">Submit</button>
 								</div><!--end btn-->
 							
 							</div>
-							
+
 						</div>
 	
 					</div><!--end card-->
@@ -67,10 +72,10 @@
 				<div class="card"><!--results card-->
 	
 					<div class="card-title">
-						program results title
+						<h1>Palindrome Results</h1> 
 					</div>
 	
-					<div class="card-content assign-results-text">
+					<div class="card-content assign-results-text" id="results">
 						results of program displays here
 					</div>
 	
@@ -87,21 +92,16 @@
 	
 			<script>
 				setSelectedTheme();// added if needed 
-		
+
+				getElementById(txtPhrase).onclick = isPalindrome;
 
 			//Creates a date function		
-
-				var date = new Date().toLocaleDateString();
-
 				function getTodaysDate() {
-
-				return (date);
-				
+					var date = new Date(en-US);
+					return date
+					
 				}
 
-					document.getElementById('resultsDiv').innerHTML = getTodaysDate();
-
-				
 				// Captures the length of a string
 
 				function getLength(str){
@@ -110,18 +110,17 @@
 					// find the length of a string
 		    		const length = string.length;
 
-		    		return = (length);
+		    		return (length);
 		    		
 
 				}
 
 				//Splits the string, reverses it then rejoins it.
 				function reverse(str){
-					var = document.getElementById("pValue");
 
 					const pal = str.split("").reverse().join("");
 
-					return = (pal);
+					return (pal);
 					
 
 				}
@@ -135,9 +134,10 @@
 						return true;
 					else
 						return false;
-
-				}
 					
+				}
+				
+
 				
 			</script>
 
