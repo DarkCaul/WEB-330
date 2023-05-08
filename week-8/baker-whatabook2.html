@@ -1,0 +1,171 @@
+<!--
+
+	Title: WEB 330 – Enterprise JavaScript II
+	Author: Tiffany Baker
+	Date: 5/7/2023
+	Description: book displaying application
+
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WEB 330 – Enterprise JavaScript II</title>
+		<link href="/theme.css" rel="stylesheet" type="text/css"> 
+		<link href="/site.css" rel="stylesheet" type="text/css"> 
+        <link href="#" rel="stylesheet" type="text/css"><!--weekly stylesheet-->
+        <script type="application/javascript" src="/theme.js"></script>
+		<!--CDN-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .card {
+                background-color: antiquewhite;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+        </style>
+    </head>
+
+<body class="light-theme">
+
+    <div class="assign-container"><!--contains the body of the content-->
+        
+        <h1 class="app-header">Welcome to the WhatABook, Part 1 App!</h1><!--header of the app-->
+            
+            <div class="assign-content">
+
+                <div class="card"><!--card container-->
+
+                    <div class="card-title"><!--card title-->
+                        <h1>Book Listing</h1>
+                    </div>
+
+
+                    <div class="card-content" id="bookList"><!--card body-->
+
+                    </div>
+         
+                    <a href="../index.html">Return</a>
+
+                </div><!--end card-->
+
+
+            </div><!--end content-->
+
+    </div><!--end cotainer-->
+
+    <div class="assign-container"><!--contains the body of the results-->
+
+        <div class="assign-content"><!--holds the content of the results-->
+
+            <div class="card"><!--results card-->
+
+                <div class="card-title">
+                    <h1>Selected Book</h1>
+                </div>
+
+                <div class="card-content assign-results-text" id="selectedBook">
+                    
+                </div>
+
+            </div><!--end card-->
+
+        </div><!--end content-->
+
+    </div><!--end container-->
+
+
+<!--added javaScript-->
+
+        <script>
+            setSelectedTheme();// added if needed 
+            import httpClient from "http-client.js";
+
+            addEventListener("DOMContentLoaded");
+
+            var fileName = "books.xml";
+
+            fetch(fileName)
+            .then(res => res.text())
+            .then(data =>{
+                var domParser = new DOMParser(fileName);
+                var xmlBooks = domParser.parseFromString(data,"text/xml");
+                loadBooks.call(xmlBooks);
+                addIsbnClickEvents();
+
+                function loadBooks(xml){
+                    var books = xml.getElementsByTagName(book);
+                    var tableData = '<table class="table" id="bookTable">';
+                        for (let book of books) {
+                            let isbn = book.getElementsByTagName("isbn")[0].childNodes[0].nodeValue;
+                            var tableData = '<tr><td data-value="ISBN"><a href="#" class="isbn-link">${isbn}</a></td><td data-value="Title">${title}</td><td data-value="discriptions">${descriptions}</td><td data-value="pages">${pages}</td><td data-value="Authors">${authors}</td></tr>';
+                       
+                        }
+
+                        getElementbyid("bookList").innerHTML = loadBooks();
+                };
+            });
+            
+            function anchorClicked(e){
+                e.preventDefault();
+
+                let self = this;
+                let cell = self.parentElement;
+                let row = cell.parentElement;
+
+                let data = row.querySelectorAll("td");
+            }
+
+            var ulList = '<ul style="list-style-type:none;">'
+            var ulListEnd = '</ul>';
+
+            for (let field of data){
+                bookData += '<li><b>${feild.dataset.value}</b></li>';
+
+            }
+            getElementbyid(selectedBook).innerHTML = ulList, bookData, ulListEnd;
+
+            function addIsbnClickEvents(){
+                var viewButtons = document.querySelectorAll("#bookTable, tBody, .isbn-link");
+                for (let button of viewButtons){
+                    viewButtons[index].addEventListener("click", anchorClicked);
+                }
+            }
+
+            const http = new httpClient;
+            const isbns = [
+                '0345339681',
+                '0261103571',
+                '9780593099322',
+                '9780261102361',
+                '9780261102378',
+                '9780590302715',
+                '9780316769532',
+                '9780743273565',
+        ];
+
+        const params = {
+            'bibkeys': 'isbn:${isbns.join(",")}',
+            'format': 'json',
+            'jscmd': 'details'
+        };
+
+        http.get('https://openlibrary.org/api/books', params).then(res =>{
+            console.log(res);
+            document.getElementById('bookListing').innerHTML = buildHTMLString(res, 'table');
+            addIsbnClickEvents();
+        })
+        .catch(e =>{
+            console.log(e);
+        });
+
+
+        </script>
+
+
+</body>
+
+</html>
